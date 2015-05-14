@@ -1,0 +1,21 @@
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<h2>Sign Up</h2>
+<form method="post" action="/user/create">
+  <label for="username">Username</label>
+  <input type="text" class="form-control" placeholder="Username" name="username">
+  <label for="password">Password</label>
+  <input type="password" class="form-control" placeholder="Password" name="password">
+  <br>
+  <input type="submit" class="btn btn-primary btn-lg" value="Create Account">
+</form>
+
+<form method="post" action="/account/signin">
+  <input type="submit" class="btn btn-link" value="Already have an account? Sign in">
+</form>
+
+
+</body>

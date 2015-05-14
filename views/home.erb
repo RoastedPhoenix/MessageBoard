@@ -1,0 +1,48 @@
+<head>
+  <title>Message Board</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<form method="post" style="text-align: right" action="/user/find">
+  <label for="other_user">Find a user</label>
+  <input type="text" placeholder="User you want to find" name="other_user">
+  <input type="submit" class="btn btn-success" value="Find User">
+</form>
+<h1><p class="text-success">Welcome <%=@username%>!</p></h1>
+<br>
+<h2 class="text-info">Threads:</h2>
+<form method="post" action =/goto/thread>
+  <table>
+    <tr>
+      <% there_be_threads = false%>
+      <% @threads.each do |thread|%>
+          <%there_be_threads = true%>
+          <td>
+            <label for="<%=thread%>"><%= thread.thread_name%></label>
+            <input type="radio" name="thread" id="<%=thread.thread_id%>" value="<%=thread.thread_id%>">
+          </td>
+      <%end%>
+      </table>
+  <% if there_be_threads%>
+      <input type="submit" class="btn btn-primary" value="Go To This Thread">
+  <%end%>
+</form>
+<br>
+<form method="post" action="/create/thread">
+  <label for="thread">Make a Thread</label>
+  <input type="text" class="form-control" placeholder="What is the name of the thread?" name="thread">
+  <input type="submit" class="btn btn-info" value="Make Thread">
+</form>
+<br>
+<h2 class="text-primary">Current Users:</h2>
+<table>
+    </tr>
+    <% @users.each do |user|%>
+    <tr>
+      <td><%= user.username%></td>
+    </tr>
+        <%end%>
+        </table>
+<br>
+<a href="/signout"><div>Sign out</div></a>
+</body>

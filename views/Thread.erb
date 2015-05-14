@@ -1,0 +1,27 @@
+<head>
+  <title><%=@thread.thread_name%></title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<h1>Welcome <p class="text-primary"><%=@username%> to <%=@thread.thread_name%>!</p></h1>
+
+<table>
+  <% @posts.each do |post| %>
+      <%@u = post.user_overlord%>
+      <%@t = post.thread_overlord%>
+      <% if post.thread_overlord == @thread.thread_name%>
+          <%@p = post.actual_post%>
+          <tr>
+            <td><p class="text-info"><%=@u%> says: <%=@p%></p></td>
+          </tr>
+      <%end%>
+  <%end%>
+</table>
+<br>
+<form method="post" action="/create/post">
+  <label for="make_post">Make a Post</label>
+  <input type="text" class="form-control" placeholder="What would you like to write?" name="make_post">
+  <input type="submit" class="btn btn-info" value="Make Post">
+</form>
+<a href="/home"><div>Go back to homepage</div></a>
+</body>

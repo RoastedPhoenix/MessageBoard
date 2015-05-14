@@ -1,0 +1,17 @@
+<head>
+  <title><%=@other_user.username%>'s page</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<h1><p class="text-primary">Welcome <%=@username%> to <%=@other_user.username%>'s page!</p></h1>
+
+<table>
+  <% @other_user_posts.each do |post| %>
+      <tr>
+        <td><p class="text-warning"><%=@other_user.username%> said <%=post.actual_post%> on the "<%=post.thread_overlord%>" thread.</p></td>
+      </tr>
+  <%end%>
+</table>
+<br>
+<a href="/home"><div>Go back to homepage</div></a>
+</body>
